@@ -1,5 +1,18 @@
 # Postman: An Introductory Guide for CS Freshmen
 
+## Table of Contents
+- [Introduction](#introduction)
+- [What is an API?](#what-is-an-api)
+- [What is a REST API?](#what-is-a-rest-api)
+- [Why test APIs?](#why-test-apis)
+- [How to install Postman](#how-to-install-postman)
+- [Your First GET Request](#your-first-get-request)
+- [POST Request with JSON](#post-request-with-json)
+- [Troubleshooting](#troubleshooting)
+- [Building Good Habits](#building-good-habits)
+- [Summary](#summary)
+- [References](#references)
+
 ## Introduction
 
 In this tutorial, we will explore Postman. Postman is a valuable tool used to test APIs (Application Programming Interfaces), a major part of modern web development and software engineering. In fact, APIs power the internet, from tools like YouTube, Netflix, and even the website you're reading right now. There are many types of APIs, but Postman specializes in testing a specific subset of APIs known as REST (Representational State Transfer) APIs.
