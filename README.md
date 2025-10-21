@@ -109,15 +109,15 @@ Before testing real APIs, take a moment to explore the interface. Hover over but
 
 Let's start with something simple.
 
-Click "New" → "HTTP Request."
+Click `"New" → "HTTP Request"`
 
-Set the method to GET and the URL to https://jsonplaceholder.typicode.com/posts/.
+Set the method to GET and the URL to `https://jsonplaceholder.typicode.com/posts/`.
 
-Click "Send."
+Click `"Send"`
 
-You'll see a response with status 200 OK, meaning success. The body will contain data like a post title, user ID, and content (Fig. 7).
+You'll see a response with status `200 OK`, meaning success. The body will contain data like a post title, user ID, and content (Fig. 7).
 
-If you add ?userId=2 to the end of the URL, or use the Params tab to add a key of userId with a value of 2, Postman automatically appends it to the URL (Fig. 8).
+If you add `?userId=2` to the end of the URL, or use the Params tab to add a key of userId with a value of 2, Postman automatically appends it to the URL (Fig. 8).
 
 ![GET](images/image6.png)
 *Fig. 7. A successful GET request in Postman returns data with a 200 OK status message, confirming that the API call worked.*
@@ -131,7 +131,7 @@ If you add ?userId=2 to the end of the URL, or use the Params tab to add a key o
 
 Now send data instead of just reading it.
 
-Change the method to POST and set the URL to https://jsonplaceholder.typicode.com/posts.
+Change the method to POST and set the URL to `https://jsonplaceholder.typicode.com/posts`.
 
 In the Headers tab, add Content-Type as the key and application/json as the value.
 
@@ -170,7 +170,7 @@ For further resources we recommend consulting Stack Overflow, and the Postman Do
 
 ## Building Good Habits
 
-Always name your requests clearly (like [GET] /libraries/books or [POST] /auth/users/). Add a short description explaining what each one does. You can even write small "tests" in Postman to automatically check whether your API returned a 200 status or contains a certain JSON key.
+Always name your requests clearly (like `[GET] /libraries/books` or `[POST] /auth/users/`). Add a short description explaining what each one does. You can even write small "tests" in Postman to automatically check whether your API returned a 200 status or contains a certain JSON key.
 
 ---
 
