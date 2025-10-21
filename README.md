@@ -29,7 +29,11 @@ As mentioned earlier, API stands for Application Programming Interface. Breaking
 ![Diagram of Library](images/image5.png)
 *Fig. 1. The Library API: the Library system allows users to do three possible actions: check out books, return books, and request books without the user seeing the internals of each action.*
 
-What we just described is an API! More formally, we can think of the Library as having an API that lets us 1) check out books, 2) return those books, and 3) request new books (denoted in the green bubbles and red text Fig 1). Notice we didn't talk about walking to the library and picking out the books nor did we talk about how a request for a new book gets processed. That's because we don't need to. In essence, an API abstracts this messy process of how something is done, away from us. If we want to check out twenty books, we could call the check out API twenty times, instead of explicitly saying, "walk to the library, pick out a book, go to the librarian, request the book be checked out, check out the book, and walk back" twenty times. We can extend this pattern and see that it's a very powerful idea, where you don't need to worry about how Netflix pulls up your favorite show, instead you could call the "Watch Show" API and not have to worry about it. While this is an oversimplification, it illustrates how powerful APIs can be.
+What we just described is an API! More formally, we can think of the Library as having an API that lets us 1) check out books, 2) return those books, and 3) request new books (denoted in the green bubbles and red text Fig 1). Notice we didn't talk about walking to the library and picking out the books nor did we talk about how a request for a new book gets processed. That's because we don't need to. 
+
+In essence, an API abstracts this messy process of how something is done, away from us. If we want to check out twenty books, we could call the check out API twenty times, instead of explicitly saying, "walk to the library, pick out a book, go to the librarian, request the book be checked out, check out the book, and walk back" twenty times. 
+
+We can extend this pattern and see that it's a very powerful idea, where you don't need to worry about how Netflix pulls up your favorite show, instead you could call the "Watch Show" API and not have to worry about it. While this is an oversimplification, it illustrates how powerful APIs can be.
 
 ---
 
