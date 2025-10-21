@@ -1,113 +1,141 @@
-# Postman: A Quick, In-Depth Guide (for CS freshmen)
+# Postman: An Introductory Guide for CS Freshmen
 
-**Names:** Keerthi, Young, Akhil
+## Introduction
 
----
+In this tutorial, we will explore Postman. Postman is a valuable tool used to test APIs (Application Programming Interfaces), a major part of modern web development and software engineering. In fact, APIs power the internet, from tools like YouTube, Netflix, and even the website you're reading right now. There are many types of APIs, but Postman specializes in testing a specific subset of APIs known as REST (Representational State Transfer) APIs.
 
-## 1) Introduction
-What is an API?  
-API stands for Application Programming Interface. It allows for two programs to talk to one another without knowing each other’s internals. It’s like using a restaurant menu; you can see what dishes you can order (the available functions), but you don’t go into the kitchen or need to know how the dishes are made. The kitchen is the inside logic, and the waiter delivering the food is the API.
+This guide will address the following:
+1. What is an API? and more specifically what is a REST API?
+2. Why do APIs need to be tested?
+3. How to install the Postman client
+4. How to use Postman to test APIs
 
-A more concrete example of this is if you’re building a clothing website, you might not want to deal with all the complex parts of handling credit card payments. Instead, you could use Stripe’s payment API, which takes in your customer’s information, processes it securely, and sends you back a response confirming the payment. This allows you to focus on your store and not on making a reliable payment system.
+### Disclaimers & Risks:
+- In this tutorial, you install Postman, a proprietary closed-source software made by Postman, Inc. Postman software is prone to vulnerabilities that can arise from bugs in code written by Postman employees, which may compromise your computer to bad actors and malware. By installing Postman, you must acknowledge the terms and conditions of Postman, Inc. To check the vulnerability reporting policy of Postman, visit: https://www.postman.com/trust/security/vulnerability-reporting/
+- In this tutorial, you will make API calls to exposed public API endpoints. Public API endpoints can expose user information such as IP addresses, and bad actors can intercept data. This tutorial provides templated inputs to prevent the exposure of sensitive user details and limit the exposure of user data, however safety is not guaranteed. At the moment of writing, these endpoints are public and not compromised; however, make sure to research the endpoint before sending a request to ensure safety.
+- If you run into issues at any point in this tutorial, we recommend consulting the official Postman documentation: https://learning.postman.com/docs/introduction/overview/.
 
-APIs specify what actions can be taken, what inputs are needed, and what outputs will be returned. For example, a “get user info” API might take a user ID and return the user’s name, email, and address as output in JSON. A weather app doesn’t collect weather data itself; instead, it calls a weather API that provides real-time weather and forecast data.
-
-APIs are everywhere, even when we don’t notice them. When you sign in with Google on a random website, that site is using Google’s OAuth API (the little sign-in using Google button) to authenticate you. When you check your phone’s map or order food, those apps are calling APIs behind the scenes to fetch data from other servers. Once you start to recognize that most software relies on these kinds of interactions, you’ll understand why learning how to use and test APIs is such a foundational skill for computer science students.
-
----
-
-## REST APIs
-One of the most common types of APIs is a REST API (Representational State Transfer). REST APIs use HTTP, which websites also use, to send and receive data. When you make a GET request to something like /users/123, the server returns information about that specific user.
-
-The standard HTTP methods are:
-- GET – “get” or retrieve existing data  
-- POST – sending data  
-- PUT – completely replace existing data  
-- PATCH – partially update existing data  
-- DELETE – remove data  
-
-REST APIs are stateless, which means that each request contains all the information needed and doesn’t use past requests. This makes them simple, scalable, and easy to debug.
-
-It helps to think of REST APIs as simple conversations. Every request that you send is like asking a question, and each response is an answer. REST’s easy to read format makes it a great starting point for learning about how real-world software systems communicate, especially in web development or mobile app integration.
+### Requirements:
+- A computer with internet access and Windows, macOS, or Linux operating system.
+- An updated browser like Chrome or Firefox for installation and checking documentation.
+- Knowledge of JSON and URLs is useful but not required.
 
 ---
 
-## Common Response Codes
-When you send an API request, the server replies with a “status code” that tells you what happened to your request. Here are most of the status codes:
+## What is an API?
 
-`200 OK` means the request worked successfully.  
-`201 Created` means a new resource was successfully created.  
-`204 No Content` means the operation worked, but there’s nothing to show in the response.  
-`400 Bad Request` means something was wrong with what you sent—often invalid JSON or missing parameters.  
-`401 Unauthorized` means you’re not logged in or missing credentials.  
-`403 Forbidden` means you’re logged in but don’t have permission to do that action.  
-`404 Not Found` means the endpoint or resource doesn’t exist.  
-`500 Internal Server Error` means something went wrong on the server’s side.  
+As mentioned earlier, API stands for Application Programming Interface. Breaking this down, an interface is a way for two or more systems (or 'entities') to communicate (program), where at least one of them is an application. More formally an API is a way that an end-user client (whether another application or an individual such as yourself) can communicate with and control an application. For example, we can look at a simple library of books. We can think of a library as a service that allows us to 1) check out books, 2) return books, and 3) request new books to be added to the library.
 
-Learning to read and interpret these codes is one of the first skills every developer should master when testing APIs. It's okay, you don’t have to memorize them right now, just have them by your side when you use Postman, and over time you will automatically remember what they mean. 
+![Diagram of Library](images/image5.png)
+*Fig. 1. The Library API: the Library system allows users to do three possible actions: check out books, return books, and request books without the user seeing the internals of each action.*
 
-Always read the response body (we will cover this later) along with the code; the body often includes hints or error messages that explain what went wrong and how to fix it.
+What we just described is an API! More formally, we can think of the Library as having an API that lets us 1) check out books, 2) return those books, and 3) request new books (denoted in the green bubbles and red text Fig 1). Notice we didn't talk about walking to the library and picking out the books nor did we talk about how a request for a new book gets processed. That's because we don't need to. In essence, an API abstracts this messy process of how something is done, away from us. If we want to check out twenty books, we could call the check out API twenty times, instead of explicitly saying, "walk to the library, pick out a book, go to the librarian, request the book be checked out, check out the book, and walk back" twenty times. We can extend this pattern and see that it's a very powerful idea, where you don't need to worry about how Netflix pulls up your favorite show, instead you could call the "Watch Show" API and not have to worry about it. While this is an oversimplification, it illustrates how powerful APIs can be.
 
 ---
 
-## Why Use Postman
-Postman is extremely helpful for working with APIs because it provides a user-friendly interface for sending requests and inspecting responses. You can very easily test whether your endpoints work without needing to write any code. You can store your requests, group them into collections, and even share them with teammates.
+## What is a REST API?
 
-Postman will save you time, especially when you’re developing a backend or connecting your app to third-party APIs. Instead of writing scripts to check every endpoint, you can visually test each one with just a few clicks.
+A REST API is a specific type of API that uses a set of rules and conventions for how applications should communicate with each other over the internet.
 
-For group projects, Postman is also a collaboration tool. You and your teammates can share collections and environment variables so everyone uses the same base URLs, tokens, and request structures. This will make debugging faster and will keep your workflow consistent. In professional settings, entire API teams rely on Postman for testing, documentation, and automation.
+Think of it as adding a more standard set of instructions to our library analogy. While our library's API defines what you could do (check out, return, request), a REST API defines how you ask. It does this by using the same simple, standard methods that your web browser uses to get websites.
+
+The most common methods are:
+- **GET**: This is used to read or get information. This is like asking the librarian, "Can you GET me the book Moby Dick?" or "Can you GET me a list of all books by Charles Dickens?"
+- **POST**: This is used to create something new. This is like filling out a "New Book Request" form and giving it to the librarian. You are POSTing a request to the library's system.
+- **PUT / PATCH**: These are used to update existing information. This is like changing ownership of a book. You are PUTting new books into your account.
+- **DELETE**: This is used to delete something. This is like the librarian DELETEing an old book that is damaged.
+
+Below, you can see a sample diagram of how our API might look in the REST framework. We can update the state of the library through PUT methods to checkout and return books. We can POST a new book request to be handled, we can GET the information about a book, and we can DELETE an old book from the library (see Fig. 2).
+
+![Diagram of Library API format](images/image4.png)
+*Fig. 2. A REST API uses standard HTTP methods such as GET, DELETE, PUT, and POST to manage library resources like books through requests.*
+
+REST APIs also organize their interfaces by resource. A resource is a "thing" or "object" you want to get information about or take action on (Note: resources are typically plural nouns). In our analogy, these are books.
+
+To specify which resource(s), REST provides the path parameter and query parameter, which is a way we can specify a parameter (an input) that tells us which resource we want to act on, such as a book identifier. Query parameters allow filtering over an input, while path parameters typically specify a singular input field. In our example we can denote the query parameter as `book_id` accepting a value of 'three_little_pigs'.
+
+With the query parameter, a REST API could look like:
+- `GET /books/?author_id=Charles-Dickens`: Gets information about all books in the library with author "Charles-Dickens".
+
+With a path parameter being, an API could look like:
+- `GET /books/three_little_pigs`: Gets information about a book in the library.
+
+In short, a REST API, is an structured API that uses standard HTTP verbs (GET, POST, PUT, DELETE) to perform operations/actions on "resources" (like a user account, a video, or a library book) with "parameters" that let us control which resources we want to act on.
 
 ---
 
-## Requirements
-To use Postman, you’ll need a computer with internet access and the Postman desktop app (available for Windows, macOS, or Linux). A modern browser like Chrome or Firefox helps for checking API documentation. Basic knowledge of JSON and URLs is useful but not required.  
-If you’re working with secured APIs, you may also need API keys or tokens. That’s it—once installed, you’re ready to start testing and sending requests.
+## Why test APIs?
+
+So far, we've talked about why APIs are used, they provide convenient interfaces that serve as abstractions allowing end-users to communicate with an application. Earlier, it was mentioned that we don't need to worry about how these APIs work. That statement is partially correct, while we might not need to worry about how exactly these APIs are powered, we do need to make sure that they give us what we expect and do what they claim they do. If checking out a book through the book check out API doesn't actually check a book out, then our library application has a big problem! So to make sure the APIs that we build (that already take care of the how) do what they say they do, we test APIs. One of the earliest and most influential ways to do this is through Postman, a proprietary closed-source tool that provides a generous free-tier to the public. While there are other open-source alternatives to test APIs (such as Bruno and Insomnia), due to the clean user interface, established market presence, and active support for Postman, this tutorial will use Postman to test APIs. The rest of this tutorial will focus specifically on using Postman to test APIs.
 
 ---
 
-## 2) Installation and Setup
-1. Download Postman (desktop app) and sign in (optional, but helps with syncing).  
-   https://www.postman.com/downloads/  
-   Pick the right download based on your computer’s architecture  
+## How to install Postman
 
-   ![image1](images/image4.png)
+**Disclaimer**: Please visit https://www.cvedetails.com/version-list/34480/168398/1/Postman-Postman.html?order=0 to read about the latest vulnerabilities in Postman software.
 
-2. Once you install it, you will be prompted to sign in. This is not necessary for this tutorial. You can instead select “Switch to Lightweight API Client.”
+### Steps:
 
-   ![image2](images/image2.png)
+1. Download Postman (desktop app) and sign in (optional, but helps with syncing).
+   - https://www.postman.com/downloads/
+   - Pick the right download based on your computer's architecture (Fig. 3)
 
-3. Know the layout:  
-   Left: Collections (saved requests).  
-   Center: Request builder (method, URL, params, headers, body).  
-   Bottom/Right: Response (status code, time, size, body, headers).
+![Download Page Postman](images/image8.png)
+*Fig. 3. Download screen for users to choose the right download depending on their operating system.*
 
-   ![image3](images/image1.png)
+2. Once you've installed it, you will be prompted to sign in. For this tutorial you DO NOT need to sign in. Instead click on "Switch to Lightweight API Client" (Fig. 4 & 5)
+
+![Sign in page](images/image9.png)
+*Fig. 4. Users may be prompted to sign in. This is not required.*
+
+![Sign in further](images/image7.png)
+*Fig. 5. When prompted to sign in, users are also given the option to switch to the lightweight API client.*
+
+3. After this, you will see the main Postman user interface. (Fig. 6)
+
+![Home page](images/image1.png)
+*Fig. 6. The main Postman screen.*
+
+### Know the layout:
+1. Left: Collections (saved requests).
+2. Center: Request builder (method, URL, params, headers, body).
+3. Bottom/Right: Response (status code, time, size, body, headers).
 
 Before testing real APIs, take a moment to explore the interface. Hover over buttons, open tabs, and try switching views. Postman gives you small hints when you hover, and understanding where everything is early on will make you much faster later when troubleshooting or testing larger projects.
 
 ---
 
-## 3) Your First GET Request
-Let’s start with something simple.
+## Your First GET Request
 
-Click “New” → “HTTP Request.”  
-Set the method to GET and the URL to https://jsonplaceholder.typicode.com/posts/.  
-Click “Send.”  
-You’ll see a response with status 200 OK, meaning success. The body will contain data like a post title, user ID, and content.
+Let's start with something simple.
 
-If you add ?userId=2 to the end of the URL, or use the Params tab to add a key of userId with a value of 2, Postman automatically appends it to the URL. Query parameters like these are used to filter or narrow results in GET requests.
+Click "New" → "HTTP Request."
 
-![image4](images/image5.png)
+Set the method to GET and the URL to https://jsonplaceholder.typicode.com/posts/.
+
+Click "Send."
+
+You'll see a response with status 200 OK, meaning success. The body will contain data like a post title, user ID, and content (Fig. 7).
+
+If you add ?userId=2 to the end of the URL, or use the Params tab to add a key of userId with a value of 2, Postman automatically appends it to the URL (Fig. 8).
+
+![GET](images/image6.png)
+*Fig. 7. A successful GET request in Postman returns data with a 200 OK status message, confirming that the API call worked.*
+
+![GET with data](images/image3.png)
+*Fig. 8. A GET request filtered with a query parameter (userId=2) to retrieve specific data.*
 
 ---
 
-## 4) POST Request with JSON
-Now send data instead of just reading it.  
+## POST Request with JSON
+
+Now send data instead of just reading it.
+
 Change the method to POST and set the URL to https://jsonplaceholder.typicode.com/posts.
 
-In the Headers tab, add Content-Type as the key and application/json as the value.  
-In the Body tab, select “raw,” then choose JSON from the dropdown, and paste:
+In the Headers tab, add Content-Type as the key and application/json as the value.
 
+In the Body tab, select "raw," then choose JSON from the dropdown, and paste:
 ```json
 {
   "title": "Groovy",
@@ -116,50 +144,60 @@ In the Body tab, select “raw,” then choose JSON from the dropdown, and paste
 }
 ```
 
-Click “Send.” If everything is correct, you’ll see status 201 Created and a JSON response showing your data with a new ID field.  
+Click "Send." If everything is correct, you'll see status 201 Created and a JSON response showing your data with a new ID field (Fig. 9).
+
 If you see a 400 Bad Request, double-check that your JSON is formatted correctly and that you set the Content-Type header properly.
 
-![image5](images/image3.png)
+![POST req](images/image2.png)
+*Fig. 9. A POST request in Postman successfully creates new data, returning a 201 Created message with the submitted JSON and new ID.*
 
 ---
 
-## 5) Headers vs Body vs Params
-Use query parameters for filters or searches, headers for metadata (like authentication tokens or content types), and the body for the actual data you’re sending. Knowing when to use each one will help you avoid a lot of errors later on.
+## Troubleshooting
+
+If something doesn't work:
+- Check for typos in your URL or missing slashes.
+- Make sure you're using the right method (GET vs POST).
+- Validate your JSON structure.
+- Confirm your authentication tokens are current.
+- Use Postman's console (bottom left) to view detailed logs of requests and responses.
+
+If it works in Postman but not in your web application, it might be a CORS issue—Postman doesn't enforce browser restrictions, but browsers do.
+
+For further resources we recommend consulting Stack Overflow, and the Postman Documentation.
 
 ---
 
-## 6) Authentication
-Most APIs will require you to prove who you are. Common authentication types are:
+## Building Good Habits
 
-- API Keys – include something like x-api-key: YOUR_KEY in your headers.  
-- Bearer Tokens – usually for OAuth or JWT; the header looks like Authorization: Bearer YOUR_TOKEN.  
-- Basic Auth – uses a simple username and password combination that Postman can handle automatically.  
-
-In Postman, go to the Authorization tab and choose the type of authentication, then fill in your credentials.
-
-For security, never hardcode sensitive information. Instead, use Postman’s Environment Variables to store values like {{token}} or {{baseUrl}}.
+Always name your requests clearly (like [GET] /libraries/books or [POST] /auth/users/). Add a short description explaining what each one does. You can even write small "tests" in Postman to automatically check whether your API returned a 200 status or contains a certain JSON key.
 
 ---
 
-## 7) Troubleshooting
-If something doesn’t work:
+## Summary
 
-- Check for typos in your URL or missing slashes.  
-- Make sure you’re using the right method (GET vs POST).  
-- Validate your JSON structure.  
-- Confirm your authentication tokens are current.  
-- Use Postman’s console (bottom left) to view detailed logs of requests and responses.
+In this tutorial we covered, what is an API? And more specifically what is a REST API? We also talked about why testing APIs is useful and how to test APIs with Postman. Lastly, we covered edge cases and good habits to build as an API tester and builder.
 
-If it works in Postman but not in your web app, it might be a CORS issue—Postman doesn’t enforce browser restrictions, but browsers do.
+Postman is one of the most powerful yet beginner-friendly tools you'll ever use as a developer. It simplifies API testing, debugging, and learning. Once you're comfortable with GET and POST requests, you can experiment with more advanced features like mock servers, automated testing, and documentation generation. To learn more about Postman's features and how to use them, consult the official Postman documentation.
+
+Learning to use Postman effectively will help you not only in your CS classes but also in internships and real-world projects. You'll gain a better understanding of how front-end and back-end systems communicate, and more importantly, how to verify that everything actually works before your users ever see it.
 
 ---
 
-## 8) Building Good Habits
-Always name your requests clearly (like [GET] /users/:id or [POST] /auth/login). Add a short description explaining what each one does. Save everything in a collection and test your responses regularly. You can even write small “tests” in Postman to automatically check whether your API returned a 200 status or contains a certain JSON key.
+## References
 
----
+[1] https://www.postman.com/
 
-## 9) Summary
-Postman is one of the most powerful yet beginner-friendly tools you’ll ever use as a developer. It simplifies API testing, debugging, and learning. Once you’re comfortable with GET and POST requests, you can experiment with more advanced features like mock servers, automated testing, and documentation generation.
+[2] https://blog.postman.com/intro-to-apis-history-of-apis/
 
-Learning to use Postman effectively will help you not only in your CS classes but also in internships and real-world projects. You’ll gain a better understanding of how front-end and back-end systems communicate, and more importantly, how to verify that everything actually works before your users ever see it.
+[3] https://www.geeksforgeeks.org/software-engineering/api-testing-software-testing/
+
+[4] https://aws.amazon.com/what-is/api/
+
+[5] https://www.ibm.com/think/topics/api
+
+[6] https://learn.microsoft.com/en-us/graph/use-postman
+
+[7] https://www.geeksforgeeks.org/software-testing/postman-tutorial/
+
+[8] https://www.cvedetails.com/version-list/34480/168398/1/Postman-Postman.html?order=0
