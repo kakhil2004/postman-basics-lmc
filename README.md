@@ -66,18 +66,22 @@ In short, a REST API, is an structured API that uses standard HTTP verbs (GET, P
 
 ## Why test APIs?
 
-So far, we've talked about why APIs are used, they provide convenient interfaces that serve as abstractions allowing end-users to communicate with an application. Earlier, it was mentioned that we don't need to worry about how these APIs work. That statement is partially correct, while we might not need to worry about how exactly these APIs are powered, we do need to make sure that they give us what we expect and do what they claim they do. If checking out a book through the book check out API doesn't actually check a book out, then our library application has a big problem! So to make sure the APIs that we build (that already take care of the how) do what they say they do, we test APIs. One of the earliest and most influential ways to do this is through Postman, a proprietary closed-source tool that provides a generous free-tier to the public. While there are other open-source alternatives to test APIs (such as Bruno and Insomnia), due to the clean user interface, established market presence, and active support for Postman, this tutorial will use Postman to test APIs. The rest of this tutorial will focus specifically on using Postman to test APIs.
+So far, we've talked about why APIs are used, they provide convenient interfaces that serve as abstractions allowing end-users to communicate with an application. Earlier, it was mentioned that we don't need to worry about how these APIs work. That statement is partially correct, while we might not need to worry about how exactly these APIs are powered, we do need to make sure that they give us what we expect and do what they claim they do.
+
+If checking out a book through the book check out API doesn't actually check a book out, then our library application has a big problem! So to make sure the APIs that we build (that already take care of the how) do what they say they do, we test APIs. One of the earliest and most influential ways to do this is through Postman, a proprietary closed-source tool that provides a generous free-tier to the public. 
+
+While there are other open-source alternatives to test APIs (such as Bruno and Insomnia), due to the clean user interface, established market presence, and active support for Postman, this tutorial will use Postman to test APIs. The rest of this tutorial will focus specifically on using Postman to test APIs.
 
 ---
 
 ## How to install Postman
 
-**Disclaimer**: Please visit https://www.cvedetails.com/version-list/34480/168398/1/Postman-Postman.html?order=0 to read about the latest vulnerabilities in Postman software.
+**Disclaimer**: Please visit <https://www.cvedetails.com/version-list/34480/168398/1/Postman-Postman.html?order=0> to read about the latest vulnerabilities in Postman software.
 
 ### Steps:
 
 1. Download Postman (desktop app) and sign in (optional, but helps with syncing).
-   - https://www.postman.com/downloads/
+   - <https://www.postman.com/downloads/>
    - Pick the right download based on your computer's architecture (Fig. 3)
 
 ![Download Page Postman](images/image8.png)
@@ -186,18 +190,19 @@ Learning to use Postman effectively will help you not only in your CS classes bu
 
 ## References
 
-[1] https://www.postman.com/
+[1] <https://www.postman.com/>
 
-[2] https://blog.postman.com/intro-to-apis-history-of-apis/
+[2] <https://blog.postman.com/intro-to-apis-history-of-apis/>
 
-[3] https://www.geeksforgeeks.org/software-engineering/api-testing-software-testing/
+[3] <https://www.geeksforgeeks.org/software-engineering/api-testing-software-testing/>
 
-[4] https://aws.amazon.com/what-is/api/
+[4] <https://aws.amazon.com/what-is/api/>
 
-[5] https://www.ibm.com/think/topics/api
+[5] <https://www.ibm.com/think/topics/api>
 
-[6] https://learn.microsoft.com/en-us/graph/use-postman
+[6] <https://learn.microsoft.com/en-us/graph/use-postman>
 
-[7] https://www.geeksforgeeks.org/software-testing/postman-tutorial/
+[7] <https://www.geeksforgeeks.org/software-testing/postman-tutorial/>
 
-[8] https://www.cvedetails.com/version-list/34480/168398/1/Postman-Postman.html?order=0
+[8] <https://www.cvedetails.com/version-list/34480/168398/1/Postman-Postman.html?order=0>
+
