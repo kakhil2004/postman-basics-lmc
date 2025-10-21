@@ -166,7 +166,7 @@ If something doesn't work:
 - Confirm your authentication tokens are current.
 - Use Postman's console (bottom left) to view detailed logs of requests and responses.
 
-If it works in Postman but not in your web application, it might be a CORS issue—Postman doesn't enforce browser restrictions, but browsers do. You can read more about it here <https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS>
+If it works in Postman but not in your web application, it might be a [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS) issue—Postman doesn't enforce browser restrictions, but browsers do.
 
 For further resources we recommend consulting Stack Overflow, and the Postman Documentation.
 
