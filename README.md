@@ -24,14 +24,14 @@ This guide will address the following:
 
 ## What is an API?
 
-As mentioned earlier, API stands for Application Programming Interface. Breaking this down, an interface is a way for two or more systems (or 'entities') to communicate (program), where at least one of them is an application. More formally an API is a way that an end-user client (whether another application or an individual such as yourself) can communicate with and control an application. For example, we can look at a simple library of books. We can think of a library as a service that allows us to 1) check out books, 2) return books, and 3) request new books to be added to the library.
+As mentioned earlier, API stands for Application Programming Interface. Breaking this down, an **interface** is a way for two or more systems (or 'entities') to communicate (**program**), where at least one of them is an **application**. More formally **an API is a way that an end-user client** (whether another application or an individual such as yourself) can communicate with and **control an application**. For example, we can look at a simple library of books. We can think of a library as a service that allows us to 1) check out books, 2) return books, and 3) request new books to be added to the library.
 
 ![Diagram of Library](images/image5.png)
 *Fig. 1. The Library API: the Library system allows users to do three possible actions: check out books, return books, and request books without the user seeing the internals of each action.*
 
 What we just described is an API! More formally, we can think of the Library as having an API that lets us 1) check out books, 2) return those books, and 3) request new books (denoted in the green bubbles and red text Fig 1). Notice we didn't talk about walking to the library and picking out the books nor did we talk about how a request for a new book gets processed. That's because we don't need to. 
 
-In essence, an API abstracts this messy process of how something is done, away from us. If we want to check out twenty books, we could call the check out API twenty times, instead of explicitly saying, "walk to the library, pick out a book, go to the librarian, request the book be checked out, check out the book, and walk back" twenty times. 
+In essence, an API **abstracts** this messy process of how something is done, away from us. If we want to check out twenty books, we could call the check out API twenty times, instead of explicitly saying, "walk to the library, pick out a book, go to the librarian, request the book be checked out, check out the book, and walk back" twenty times. 
 
 We can extend this pattern and see that it's a very powerful idea, where you don't need to worry about how Netflix pulls up your favorite show, instead you could call the "Watch Show" API and not have to worry about it. While this is an oversimplification, it illustrates how powerful APIs can be.
 
@@ -41,13 +41,13 @@ We can extend this pattern and see that it's a very powerful idea, where you don
 
 A REST API is a specific type of API that uses a set of rules and conventions for how applications should communicate with each other over the internet.
 
-Think of it as adding a more standard set of instructions to our library analogy. While our library's API defines what you could do (check out, return, request), a REST API defines how you ask. It does this by using the same simple, standard methods that your web browser uses to get websites.
+Think of it as adding a more standard set of instructions to our library analogy. While our library's API defines what you could do (check out, return, request), **a REST API** defines how you ask. It does this by using the same simple, standard methods that your web browser uses to get websites.
 
 The most common methods are:
-- **GET**: This is used to read or get information. This is like asking the librarian, "Can you GET me the book Moby Dick?" or "Can you GET me a list of all books by Charles Dickens?"
-- **POST**: This is used to create something new. This is like filling out a "New Book Request" form and giving it to the librarian. You are POSTing a request to the library's system.
-- **PUT / PATCH**: These are used to update existing information. This is like changing ownership of a book. You are PUTting new books into your account.
-- **DELETE**: This is used to delete something. This is like the librarian DELETEing an old book that is damaged.
+- **GET**: This is used to **read** or get information. This is like asking the librarian, "Can you **GET** me the book Moby Dick?" or "Can you **GET** me a list of all books by Charles Dickens?"
+- **POST**: This is used to **create** something new. This is like filling out a "New Book Request" form and giving it to the librarian. You are **POST**ing a request to the library's system.
+- **PUT / PATCH**: These are used to **update** existing information. This is like changing ownership of a book. You are **PUT**ting new books into your account.
+- **DELETE**: This is used to **delete** something. This is like the librarian **DELETE**ing an old book that is damaged.
 
 Below, you can see a sample diagram of how our API might look in the REST framework. We can update the state of the library through PUT methods to checkout and return books. We can POST a new book request to be handled, we can GET the information about a book, and we can DELETE an old book from the library (see Fig. 2).
 
@@ -56,7 +56,7 @@ Below, you can see a sample diagram of how our API might look in the REST framew
 
 REST APIs also organize their interfaces by resource. A resource is a "thing" or "object" you want to get information about or take action on (Note: resources are typically plural nouns). In our analogy, these are books.
 
-To specify which resource(s), REST provides the path parameter and query parameter, which is a way we can specify a parameter (an input) that tells us which resource we want to act on, such as a book identifier. Query parameters allow filtering over an input, while path parameters typically specify a singular input field. In our example we can denote the query parameter as `book_id` accepting a value of 'three_little_pigs'.
+To specify which resource(s), REST provides the **path parameter** and **query parameter**, which is a way we can specify a **parameter** (an input) that tells us which resource we want to act on, such as a book identifier. Query parameters allow filtering over an input, while path parameters typically specify a singular input field. In our example we can denote the query parameter as `book_id` accepting a value of 'three_little_pigs'.
 
 With the query parameter, a REST API could look like:
 - `GET /books/?author_id=Charles-Dickens`: Gets information about all books in the library with author "Charles-Dickens".
@@ -74,7 +74,7 @@ So far, we've talked about why APIs are used, they provide convenient interfaces
 
 If checking out a book through the book check out API doesn't actually check a book out, then our library application has a big problem! So to make sure the APIs that we build (that already take care of the how) do what they say they do, we test APIs. One of the earliest and most influential ways to do this is through Postman, a proprietary closed-source tool that provides a generous free-tier to the public. 
 
-While there are other open-source alternatives to test APIs (such as Bruno and Insomnia), due to the clean user interface, established market presence, and active support for Postman, this tutorial will use Postman to test APIs. The rest of this tutorial will focus specifically on using Postman to test APIs.
+While there are other open-source alternatives to test APIs (such as Bruno and Insomnia), due to the clean user interface, established market presence, and active support for Postman, this tutorial will use Postman to **test** APIs. The rest of this tutorial will focus specifically on using Postman to test APIs.
 
 ---
 
@@ -105,9 +105,9 @@ While there are other open-source alternatives to test APIs (such as Bruno and I
 *Fig. 6. The main Postman screen.*
 
 ### Know the layout:
-1. Left: Collections (saved requests).
-2. Center: Request builder (method, URL, params, headers, body).
-3. Bottom/Right: Response (status code, time, size, body, headers).
+1. **Left**: Collections (saved requests).
+2. **Center**: Request builder (method, URL, params, headers, body).
+3. **Bottom/Right**: Response (status code, time, size, body, headers).
 
 Before testing real APIs, take a moment to explore the interface. Hover over buttons, open tabs, and try switching views. Postman gives you small hints when you hover, and understanding where everything is early on will make you much faster later when troubleshooting or testing larger projects.
 
