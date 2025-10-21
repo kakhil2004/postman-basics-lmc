@@ -11,9 +11,9 @@ This guide will address the following:
 4. How to use Postman to test APIs
 
 ### Disclaimers & Risks:
-- In this tutorial, you install Postman, a proprietary closed-source software made by Postman, Inc. Postman software is prone to vulnerabilities that can arise from bugs in code written by Postman employees, which may compromise your computer to bad actors and malware. By installing Postman, you must acknowledge the terms and conditions of Postman, Inc. To check the vulnerability reporting policy of Postman, visit: https://www.postman.com/trust/security/vulnerability-reporting/
+- In this tutorial, you install Postman, a proprietary closed-source software made by Postman, Inc. Postman software is prone to vulnerabilities that can arise from bugs in code written by Postman employees, which may compromise your computer to bad actors and malware. By installing Postman, you must acknowledge the terms and conditions of Postman, Inc. To check the vulnerability reporting policy of Postman, visit: <https://www.postman.com/trust/security/vulnerability-reporting/>
 - In this tutorial, you will make API calls to exposed public API endpoints. Public API endpoints can expose user information such as IP addresses, and bad actors can intercept data. This tutorial provides templated inputs to prevent the exposure of sensitive user details and limit the exposure of user data, however safety is not guaranteed. At the moment of writing, these endpoints are public and not compromised; however, make sure to research the endpoint before sending a request to ensure safety.
-- If you run into issues at any point in this tutorial, we recommend consulting the official Postman documentation: https://learning.postman.com/docs/introduction/overview/.
+- If you run into issues at any point in this tutorial, we recommend consulting the official Postman documentation: <https://learning.postman.com/docs/introduction/overview/>.
 
 ### Requirements:
 - A computer with internet access and Windows, macOS, or Linux operating system.
