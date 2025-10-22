@@ -210,19 +210,24 @@ Learning to use Postman effectively will help you not only in your CS classes bu
 
 ## References
 
-[1] <https://www.postman.com/>
+[1] Postman. (2025). *Postman: The collaboration platform for API development.* Postman. <https://www.postman.com/>
 
-[2] <https://blog.postman.com/intro-to-apis-history-of-apis/>
+[2] Lane, K. (2019, October 10). *Intro to APIs: History of APIs.* Postman Blog. <https://blog.postman.com/intro-to-apis-history-of-apis/>
 
-[3] <https://www.geeksforgeeks.org/software-engineering/api-testing-software-testing/>
+[3] GeeksforGeeks. (2020, December 20). *API testing – Software testing.* GeeksforGeeks. <https://www.geeksforgeeks.org/software-engineering/api-testing-software-testing/>
 
-[4] <https://aws.amazon.com/what-is/api/>
+[4] Amazon Web Services. (2025). *What is an API? – API beginner’s guide.* Amazon Web Services, Inc. <https://aws.amazon.com/what-is/api/>
 
-[5] <https://www.ibm.com/think/topics/api>
+[5] Goodwin, M. (2024, April 9). *What is an API (application programming interface)?* IBM. <https://www.ibm.com/think/topics/api>
 
-[6] <https://learn.microsoft.com/en-us/graph/use-postman>
+[6] Jasonjoh. (n.d.). *Use Postman with the Microsoft Graph API.* Microsoft Learn. <https://learn.microsoft.com/en-us/graph/use-postman>
 
-[7] <https://www.geeksforgeeks.org/software-testing/postman-tutorial/>
+[7] GeeksforGeeks. (2024, February 5). *Postman tutorial.* GeeksforGeeks. <https://www.geeksforgeeks.org/software-testing/postman-tutorial/>
 
-[8] <https://www.cvedetails.com/version-list/34480/168398/1/Postman-Postman.html?order=0>
+[8] *Postman versions and number of CVEs, vulnerabilities.* (2025). CVE Details. <https://www.cvedetails.com/version-list/34480/168398/1/Postman-Postman.html?order=0>
+
+[9] Mozilla Developer Network (MDN). (n.d.). *CORS (Cross-Origin Resource Sharing).* MDN Web Docs. <https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS>
+
+
+
 
